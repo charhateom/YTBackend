@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "axios": "^1.7.9",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "he": "^1.2.0",
+    "openai": "^4.77.3",
+    "youtube-transcript": "^1.2.1"
+  }
+}
