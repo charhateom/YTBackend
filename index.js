@@ -7,7 +7,6 @@ const axios = require('axios');
 const rateLimit = require('express-rate-limit');
 
 const app = express();
-const cors = require('cors');
 app.use(cors({
   origin: '*', // Allow all origins
 }));
