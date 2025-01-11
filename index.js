@@ -109,9 +109,8 @@ async function summarizeWithGemini(text) {
 // Route to summarize video transcript
 app.post('/api/summarize', async (req, res) => {
   try {
-    console.log(req)
     const { url } = req.body;
-
+    console.log(req.body)
     if (!url) {
       return res.status(400).json({ error: 'YouTube URL is required' });
     }
