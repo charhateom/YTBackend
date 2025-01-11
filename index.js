@@ -129,7 +129,6 @@ app.post('/api/summarize', async (req, res) => {
     const data = summarizeText(rawText, 5); // Limit to 5 sentences
 
     try {
-      // Summarize using OpenRouter AI's Gemini model
       const summary = await summarizeWithGemini(data);
       res.json({ summary });
     } catch (error) {
@@ -139,12 +138,15 @@ app.post('/api/summarize', async (req, res) => {
     }
   } catch (error) {
     console.error(error);
-    if (error.message.includes('No transcripts found')) {
+
+    if (error.message.includes('Transcript is disabled')) {
       return res.status(400).json({ error: 'Transcripts are disabled or unavailable for this video' });
     }
-    res.status(500).json({ error: 'Failed to fetch transcript' });
+
+    res.status(500).json({ error: 'An error occurred while processing the video' });
   }
 });
+
 
 // Start the server
 const PORT = process.env.PORT || 5000;
