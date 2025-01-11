@@ -7,7 +7,10 @@ const axios = require('axios');
 const rateLimit = require('express-rate-limit');
 
 const app = express();
-app.use(cors());
+const cors = require('cors');
+app.use(cors({
+  origin: '*', // Allow all origins
+}));
 
 app.use(bodyParser.json());
 
@@ -107,6 +110,7 @@ async function summarizeWithGemini(text) {
 // Route to summarize video transcript
 app.post('/api/summarize', async (req, res) => {
   try {
+    console.log(req)
     const { url } = req.body;
 
     if (!url) {
